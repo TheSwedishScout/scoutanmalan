@@ -133,13 +133,13 @@ if (($kar == $_SESSION['user_kår']) OR ($_SESSION['user_lvl'] >= 2) ){
 
         $action = 'action="update_parse.php"';
 
-        $disabled = '';
+        $disabled = false;
 
     }else{
 
         $action = 'action="to_late.php"';
 
-        $disabled = 'disabled';
+        $disabled = true;
 
     }
 
@@ -167,7 +167,7 @@ if (($kar == $_SESSION['user_kår']) OR ($_SESSION['user_lvl'] >= 2) ){
 
 	        <label class="input" for="Förnamn">Förnamn*:</label>
 
-	        <input class="input" <?php echo $disabled; ?> required="required" type="text" name="Förnamn" id="textfield" value="<?php echo $fnamn ?>">
+	        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Förnamn" id="textfield" value="<?php echo $fnamn ?>">
 
 	        
 
@@ -175,44 +175,36 @@ if (($kar == $_SESSION['user_kår']) OR ($_SESSION['user_lvl'] >= 2) ){
 
 	        <label class="input" for="Efternamn">Efternamn*:</label>
 
-	        <input class="input" <?php echo $disabled; ?> required="required" type="text" name="Efternamn" id="textfield2" value="<?php echo $enamn ?>">
+	        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Efternamn" id="textfield2" value="<?php echo $enamn ?>">
 
-
-
-	        <label class="input"  for="avdelning">Avdelning*:</label>
-
-	        <?php printAldersgrupper($avdelning) ?>
-
-	        
-
-	        <label class="input" for="t-shirt">Tröjstorlek*:</label>
-
-	         <?php printTshirts(); 
-            	printSpeckost(explode(", ", $speckostSQL));
+	        <?php 
+	        	printAldersgrupper($disabled, $avdelning); 
+				printTshirts($disabled, $tshirt); 
+            	printSpeckost($disabled, explode(", ", $speckostSQL));
   		    ?>
 	            
 
 	        <label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
 
-	        <textarea class="input" <?php echo $disabled; ?> name="Sjukdomar" id="textarea2"><?php echo $sjuk ?></textarea>
+	        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Sjukdomar" id="textarea2"><?php echo $sjuk ?></textarea>
 
 	                
 
 	        <label class="input full" for="Övriginfo">Övrig info:</label>
 
-	        <textarea class="input" <?php echo $disabled; ?> name="Övriginfo" id="textarea" ><?php echo $övrigt ?></textarea>
+	        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Övriginfo" id="textarea" ><?php echo $övrigt ?></textarea>
 
 
 
 	        <label class="input" for="bild" >Får vara med på bild: </label>
 
-        	<div class="input"><input <?php echo $disabled; ?> type="radio" value="ja" <?php echo $bild_ja;?> name="bild"> Ja  &nbsp; <input <?php echo $disabled; ?> type="radio" <?php echo $bild_nej;?> value="nej" name="bild"> Nej </div>
+        	<div class="input"><input <?php if($disabled){ echo "disabled";} ?> type="radio" value="ja" <?php echo $bild_ja;?> name="bild"> Ja  &nbsp; <input <?php if($disabled){ echo "disabled";} ?> type="radio" <?php echo $bild_nej;?> value="nej" name="bild"> Nej </div>
 
-	    	<input type="submit" <?php echo $disabled; ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
+	    	<input type="submit" <?php if($disabled){ echo "disabled";} ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
 
-	        <input type="button" <?php echo $disabled; ?> name="remove" id="remove" value="radera">
+	        <input type="button" <?php if($disabled){ echo "disabled";} ?> name="remove" id="remove" value="radera">
 
-	        <input type="hidden" <?php echo $disabled; ?> value="<?php echo $id ?>" name ="id">
+	        <input type="hidden" <?php if($disabled){ echo "disabled";} ?> value="<?php echo $id ?>" name ="id">
 
 	        <div id="info">
 

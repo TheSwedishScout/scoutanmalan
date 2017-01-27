@@ -30,128 +30,126 @@
 
 <div id="sitecontainer">
 
-    <?php headern(); ?>
+	<?php headern(); ?>
 
-    <?php
+	<?php
 
-        if(!isset($_SESSION['user_kår'])){
+		if(!isset($_SESSION['user_kår'])){
 
-        ?>
+		?>
 
-        <h1>Anmäl ny deltagare</h1>
+		<h1>Anmäl ny deltagare</h1>
 
-           <div class="deltagare">
+		   <div class="deltagare">
 
-                <p> Du kan inte registrera någon för tillfället. Eller är inte <a href="login.php"> inloggad</a></p>
+				<p> Du kan inte registrera någon för tillfället. Eller är inte <a href="login.php"> inloggad</a></p>
 
-            </div>  
+			</div>  
 
-        <?php
+		<?php
 
-        }else{
+		}else{
 
-        ?>
-
-
-
-    <h1>Deltagare <?php echo $_SESSION['user_kår']; ?></h1>
-
-    <?php
-
-        $date = date('Ymd');
-
-        //$last_day = "20170520"; // ------------------------------------------------SIATA ANMÄLNIGS DAG-----------------------------------------ÄNDRA!!!!!!!!!!
-
-        if ($date < $last_day){
-
-            $action = 'action="anmalan_parse.php"';
-
-            $disabled = '';
-
-        }else{
-
-            $action = 'action="to_late.php"';
-
-            $disabled = 'disabled';
-
-        }
-
-        if (isset($_GET['anmäld']) && ($_GET['anmäld'] === "sparad")){
-
-            ?>
-
-                <div id="popup">
-
-                    <div id="close_popup">X</div>
-
-                    <p>Din anmälan har gått igenom och är sparad.</p>
+		?>
 
 
 
-                    
+	<h1>Deltagare <?php echo $_SESSION['user_kår']; ?></h1>
 
-                </div>
+	<?php
 
-            <?php
+		$date = date('Ymd');
 
-        }
+		//$last_day = "20170520"; // ------------------------------------------------SIATA ANMÄLNIGS DAG-----------------------------------------ÄNDRA!!!!!!!!!!
 
-    ?>
+		if ($date < $last_day){
 
-    <form id="nydeltagare" name="nydeltagare" method="post" action="anmalan_parse.php" enctype="multipart/form-data">
+			$action = 'action="anmalan_parse.php"';
 
-    
+			$disabled = false;
 
-        
+		}else{
 
-        <label class="input" for="Förnamn">Förnamn*:<div class="">Det ser inte rätt ut</div></label>
+			$action = 'action="to_late.php"';
 
-        <input class="input name" <?php echo $disabled; ?> required="required" type="text" name="Förnamn" autofocus placeholder="Erik" id="textfield">
+			$disabled = true;
 
-        <label class="input" for="Efternamn">Efternamn*:</label>
+		}
 
-        <input <?php echo $disabled; ?> class="input name" required="required" type="text" name="Efternamn" placeholder="Svensson" id="textfield2">
+		if (isset($_GET['anmäld']) && ($_GET['anmäld'] === "sparad")){
 
-        <label class="input" for="avdelning">Avdelning*:</label>
+			?>
 
-        <?php printAldersgrupper(); ?>
+				<div id="popup">
 
-        <label class="input" for="t-shirt">Tröjstorlek*:</label>
+					<div id="close_popup">X</div>
 
-        <?php printTshirts(); 
-              printSpeckost();
-        ?>
+					<p>Din anmälan har gått igenom och är sparad.</p>
 
 
-        <label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
 
-        <textarea class="input" <?php echo $disabled; ?> name="Sjukdomar" id="textarea2" placeholder="Sjukdomar och allergir som är bra för Skjukvård att veta"></textarea>    
+					
 
-        <label class="input full" for="Övriginfo">Övrig info:</label>
+				</div>
 
-        <textarea class="input" <?php echo $disabled; ?> name="Övriginfo" placeholder="Information som är bra för andra funktioner än Sjukvård" id="textarea" ></textarea>
+			<?php
 
-        <label class="input" for="bild" >Får vara med på bild: </label>
+		}
 
-        <div class="input"><input <?php echo $disabled; ?> type="radio" value="ja" checked name="bild"> Ja  &nbsp; <input <?php echo $disabled; ?> type="radio" value="nej" name="bild"> Nej </div>
+	?>
 
-    	<input type="submit" <?php echo $disabled; ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
+	<form id="nydeltagare" name="nydeltagare" method="post" action="anmalan_parse.php" enctype="multipart/form-data">
 
-        <div id="info">
+	
 
-        	<p>Obligatoriska fält är makerade med *</p>
+		
 
-        </div>
+		<label class="input" for="Förnamn">Förnamn*:<div class="">Det ser inte rätt ut</div></label>
 
-    </form>
+		<input class="input name" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Förnamn" autofocus placeholder="Erik" id="textfield">
 
-    <?php
+		<label class="input" for="Efternamn">Efternamn*:</label>
 
-    }
+		<input <?php if($disabled){ echo "disabled";} ?> class="input name" required="required" type="text" name="Efternamn" placeholder="Svensson" id="textfield2">
 
-    footern();
+		
 
-    ?>
+		<?php 
+			printAldersgrupper($disabled);
+			printTshirts($disabled); 
+			printSpeckost($disabled);
+		?>
+
+
+		<label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
+
+		<textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Sjukdomar" id="textarea2" placeholder="Sjukdomar och allergir som är bra för Skjukvård att veta"></textarea>    
+
+		<label class="input full" for="Övriginfo">Övrig info:</label>
+
+		<textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Övriginfo" placeholder="Information som är bra för andra funktioner än Sjukvård" id="textarea" ></textarea>
+
+		<label class="input" for="bild" >Får vara med på bild: </label>
+
+		<div class="input"><input <?php if($disabled){ echo "disabled";} ?> type="radio" value="ja" checked name="bild"> Ja  &nbsp; <input <?php if($disabled){ echo "disabled";} ?> type="radio" value="nej" name="bild"> Nej </div>
+
+		<input type="submit" <?php if($disabled){ echo "disabled";} ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
+
+		<div id="info">
+
+			<p>Obligatoriska fält är makerade med *</p>
+
+		</div>
+
+	</form>
+
+	<?php
+
+	}
+
+	footern();
+
+	?>
 
 </div>
 

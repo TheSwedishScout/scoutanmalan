@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])){
 
     
 
-    $sql = "SELECT password, kår, user_lvl FROM `users` WHERE `username` = '$username' OR `email` = '$username'";
+    $sql = "SELECT password, kår, user_lvl FROM `users` WHERE `username` = '$username' OR `email` = '$username' OR `kår` = '$username'";
     
     $result = $conn->query($sql);
         //var_dump($result);
