@@ -158,6 +158,7 @@ function printTshirts($valdStorlek = "" ,$disabled = false){
 }
 function printSpeckost($specArray = [] ,$disabled = false){
   global $speckost;
+  global $annanSpecKost;
   $i = 0;
   foreach ($speckost as $kost) {
     # code...
@@ -167,10 +168,12 @@ function printSpeckost($specArray = [] ,$disabled = false){
     <?php
     $i++;
   }
-  ?>
-  <label class="input" for="Specialkost">Annat (kontakta)</label>
-  <input <?php if(in_array("Annat", $specArray)){echo "checked";} ?> class="input" <?php echo $disabled; ?> type="checkbox" id="annat" name="Specialkost[<?php echo $i; ?>]" value="Annat">
-  <?php
+  if ($annanSpecKost == true){
+    ?>
+    <label class="input" for="Specialkost">Annat (kontakta)</label>
+    <input <?php if(in_array("Annat", $specArray)){echo "checked";} ?> class="input" <?php echo $disabled; ?> type="checkbox" id="annat" name="Specialkost[<?php echo $i; ?>]" value="Annat">
+    <?php
+  }
 }
 
 

@@ -2,7 +2,7 @@
 $( document ).ready(function() {
 	$( "#annat" ).change(function() {
     	if(this.checked) {
-		alert ("Kontakta Annica Wetter Nilsson på telefon och diskutera en lämplig lösning. Var då beredd på att vi kan vilja ha läkarintyg på att annan specialkost krävs.");
+		alert ("Kontakta lägrets intedentur för att diskutera en lämplig lösning.");
 		}
 	});
 	$( "#remove").click(function(){

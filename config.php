@@ -1,8 +1,9 @@
 <?php
 
 
-//Allergier
+//speckost
 $speckost = ["Vegiterian",	"Fläskfri",	"Laktosintolerant",	"Celiaki/glutenallergi"];
+$annanSpecKost = false;
 
 //T-shirts
 $tshirts = ["110", "130", "150" , "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXXL"];
