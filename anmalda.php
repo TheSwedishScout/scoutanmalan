@@ -143,15 +143,7 @@ div.last{
 
 						<h3>Allergier</h3>
 
-						<p class="mat">Vegetarian: <?php echo $row['vegetarian']; ?></p>
-
-						<p class="mat">Glutenintolerant: <?php echo $row['glutenintolerant']; ?></p>
-
-						<p class="mat">Laktosintolerant: <?php echo $row['laktosintolerant']; ?></p>
-
-						<p class="mat">Mjölkfritt: <?php echo $row['mjölkfritt']; ?></p>
-
-						<p class="mat">Annat: <?php echo $row['annat']; ?></p>
+						<p class="mat">Speckost: <?php echo $row['speckost']; ?></p>
 
 						</div>
 

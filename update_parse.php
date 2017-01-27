@@ -14,6 +14,7 @@
 <?php
 
 var_dump($_POST);
+$error = false;
 
 if (!empty($_POST)){
 	
@@ -37,31 +38,25 @@ if (!empty($_POST)){
 	
 	//inte obligatoriska
 	//echo $_POST['Specialkost'][0];
-	if ((isset($_POST['Specialkost'][0])) && ($_POST['Specialkost'][0] == "Vegetarian")){
-		$veg = "ja";
+	if (isset($_POST["Specialkost"])){
+		$speckostIn = $_POST["Specialkost"];
+		foreach ($speckostIn as $kost) {
+			if ($kost != "Annat") {
+				$kost = test_input($kost);
+				if(!in_array($kost, $speckost)){
+					$error = true;
+				}
+			}else{
+				test_input($kost);
+			}
+
+		}
+		$speckosten = implode(", ", $speckostIn);
 	}else{
-		$veg = "nej";
+		$speckosten = "";
 	}
-	if ((isset($_POST['Specialkost'][1])) && ($_POST['Specialkost'][1] == "Glutenintolerant")){
-		$gluten = "ja";
-	}else{
-		$gluten = "nej";
-	}
-	if ((isset($_POST['Specialkost'][2])) && ($_POST['Specialkost'][2] == "Laktosintolerant")){
-		$laktos = "ja";
-	}else{
-		$laktos = "nej";
-	}
-	if ((isset($_POST['Specialkost'][3])) && ($_POST['Specialkost'][3] == "Mjölkfritt")){ 
-		$mjölk = "ja";
-	}else{
-		$mjölk = "nej";
-	}
-	if ((isset($_POST['Specialkost'][4])) && ($_POST['Specialkost'][4] == "Annat")){
-		$annat = "ja";
-	}else{
-		$annat = "nej";
-	}
+
+
 	$Sjukdomar = test_input($_POST['Sjukdomar'], $conn);
 	if (!empty($Sjukdomar)){
 		$Sjukdomar = "'".$Sjukdomar."'";
@@ -81,7 +76,7 @@ if (!empty($_POST)){
 	if (!$error) {
 		
 	
-		$sql= "UPDATE deltagare SET förnamn='$fnamn', efternamn='$enamn', bild='$bild', avdelning='$avdelning', tröjstorlek='$tshirt', vegetarian='$veg', glutenintolerant='$gluten', laktosintolerant='$laktos', mjölkfritt='$mjölk', `annat` = '$annat', sjukdomar=$Sjukdomar, övrigt=$övrigt, date_edited=NOW() WHERE ID= $id";
+		$sql= "UPDATE deltagare SET förnamn='$fnamn', efternamn='$enamn', bild='$bild', avdelning='$avdelning', tröjstorlek='$tshirt', speckost='$speckosten', sjukdomar=$Sjukdomar, övrigt=$övrigt, date_edited=NOW() WHERE ID= $id";
 		
 		if ($conn->query($sql) === TRUE) {
 			echo "New record created successfully";

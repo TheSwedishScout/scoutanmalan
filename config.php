@@ -10,5 +10,5 @@ $tshirts = ["110", "130", "150" , "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXX
 //Ålersgrupper
 $aldersgrupp = ["Spårare","Upptackare","Ledare","Ledar barn","Funktionär"];
 
-$last_day = "20160615"; // Sista anmälningsdag kl 2359 angiven dag
+$last_day = "20170615"; // Sista anmälningsdag kl 2359 angiven dag
 ?>

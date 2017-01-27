@@ -57,7 +57,7 @@ if ((!empty($_POST)) && (isset($_SESSION['user_id']))){
 		}
 		$speckosten = implode(", ", $speckostIn);
 	}else{
-		$speckosten = "NULL";
+		$speckosten = "";
 	}
 
 	$Sjukdomar = test_input($_POST['Sjukdomar'], $conn);

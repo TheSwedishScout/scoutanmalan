@@ -60,7 +60,7 @@
 
         $date = date('Ymd');
 
-        $last_day = "20170520"; // ------------------------------------------------SIATA ANMÄLNIGS DAG-----------------------------------------ÄNDRA!!!!!!!!!!
+        //$last_day = "20170520"; // ------------------------------------------------SIATA ANMÄLNIGS DAG-----------------------------------------ÄNDRA!!!!!!!!!!
 
         if ($date < $last_day){
 
@@ -122,26 +122,6 @@
               printSpeckost();
         ?>
 
-        <!--
-        <label class="input" for="Specialkost">Vegetarian</label>
-
-        <input class="input" <?php echo $disabled; ?> type="checkbox" name="Specialkost[0]" value="Vegetarian">
-
-        <label class="input" for="Specialkost">Glutenintolerant</label>
-
-        <input class="input" <?php echo $disabled; ?> type="checkbox" name="Specialkost[1]" value="Glutenintolerant"> 
-
-        <label class="input" for="Specialkost">Laktosintolerant</label>
-
-        <input class="input" <?php echo $disabled; ?> type="checkbox" name="Specialkost[2]" value="Laktosintolerant"> 
-
-        <label class="input" for="Specialkost">Mjölkfritt</label>
-
-        <input class="input" <?php echo $disabled; ?> type="checkbox" name="Specialkost[3]" value="Mjölkfritt"> 
-
-        <label class="input" for="Specialkost">Annat (kontakta)</label>
-
-        <input class="input" <?php echo $disabled; ?> type="checkbox" id="annat" name="Specialkost[4]" value="Annat"> <!--Allert "Kontakta Annica Wetter Nilsson på telefon och diskutera en lämplig lösning. Var då beredd på att vi kan vilja ha läkarintyg på att specialkost krävs.  -->
 
         <label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
 
