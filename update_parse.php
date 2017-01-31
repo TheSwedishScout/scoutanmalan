@@ -1,19 +1,6 @@
-<?php include ("function.php");?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Anmälan läge&reg;2016</title>
+<?php include ("function.php");
 
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/my_js.js"></script>
-</head>
-
-<body>
-<?php
-
-var_dump($_POST);
+//var_dump($_POST);
 $error = false;
 
 if (!empty($_POST)){
@@ -79,7 +66,7 @@ if (!empty($_POST)){
 		$sql= "UPDATE deltagare SET förnamn='$fnamn', efternamn='$enamn', bild='$bild', avdelning='$avdelning', tröjstorlek='$tshirt', speckost='$speckosten', sjukdomar=$Sjukdomar, övrigt=$övrigt, date_edited=NOW() WHERE ID= $id";
 		
 		if ($conn->query($sql) === TRUE) {
-			echo "New record created successfully";
+			//echo "New record created successfully";
 			header('location: anmalda.php');
 		exit; 
 		} else {

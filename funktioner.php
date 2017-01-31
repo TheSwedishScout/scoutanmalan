@@ -4,26 +4,7 @@
 
 <html>
 
-<head>
-
-<meta charset="utf-8">
-
-<title>Anmälan läge&reg;2016</title>
-
-
-
-<meta name="viewport" content="width=device-width"/>
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="js/my_js.js"></script>
-
-</head>
-
+<?php include("head.php") ?>
 
 
 <body>
@@ -82,7 +63,7 @@
 
 			<p>De alternativ som vi har i denna lista är de storlekar vi har.</p>
 
-            <p>Vi kommer att ha stolekarna 110/120cl, 130/140cl, 150/160cl och unisex XS-XXXXL.
+            <p>Vi kommer att ha stolekarna: <?php echo implode(", ", $tshirts); ?>.
 
 			<h3>Vegetarian, Glutenintolerant, Laktosintolerant, Mjölkfritt</h3>
 
@@ -90,7 +71,7 @@
 
 			<h3>Annat</h3>
 
-			<p>Detta alternativet hänvisar till annan matallergi och om du fyller i något här måste du eller förelder ta kontakt med Intendenturen finnes <a href="http://lager2016.se/kontakt/" target="_BLANK"> här</a>.</p>
+			<p>Detta alternativet hänvisar till annan matallergi och om du fyller i något här måste du eller förelder ta kontakt med Intendenturen finnes <a href="./kontakta.php" target="_BLANK"> här</a>.</p>
 
 			<h3>Sjukdomar/andra allergier</h3>
 

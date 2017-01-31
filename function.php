@@ -38,7 +38,10 @@ function headern(){
 	//echo "
 	global $lagerbild;
 
-	
+	$page = explode("/", $_SERVER['REQUEST_URI']);
+	$page = array_reverse($page)[0];
+	$page = explode("?", $page)[0];
+	$page = explode(".", $page)[0];
 
 	?>
 
@@ -48,19 +51,19 @@ function headern(){
 
 					<a href="index.php" id="loggon" ><img src="<?php echo $lagerbild; ?>" alt="loggo"/></a>
 						<ul>
-								<li><a href="index.php">Start</a></li>
-								<li><a href="anmalan">Ny scout</a></li>
-								<li><a href="anmalda">Anmälda</a></li>
+								<li><a class = "<?php echo $page=='index' ? 'active' : ''; ?>" href="index.php">Start</a></li>
+								<li><a class = "<?php echo $page=='anmalan' ? 'active' : ''; ?>" href="anmalan.php">Ny scout</a></li>
+								<li><a class = "<?php echo $page=='anmalda' ? 'active' : ''; ?>" href="anmalda.php">Anmälda</a></li>
 								<?php
 									if(!isset($_SESSION['user_id'])){
 								?>
-										<li><a href="registrera">Nytt konto</a></li>
-										<li><a href="login">Logga in</a></li>
+										<li><a class = "<?php echo $page=='registrera' ? 'active' : ''; ?>" href="registrera.php">Nytt konto</a></li>
+										<li><a class = "<?php echo $page=='login' ? 'active' : ''; ?>" href="login.php">Logga in</a></li>
 								<?php
 									}else{
 								?>
-										<li><a href="mittkonto">Min sida</a></li>
-										<li><a href="logout">Logga ut </a></li>
+										<li><a class = "<?php echo $page=='mittkonto' ? 'active' : ''; ?>" href="mittkonto.php">Min sida</a></li>
+										<li><a class = "<?php echo $page=='logout' ? 'active' : ''; ?>" href="logout.php">Logga ut </a></li>
 								<?php
 									}
 								?>
@@ -82,17 +85,18 @@ function headern(){
 }
 
 function footern(){
+	global $lägerNamn, $lägretsSida;
 	?>
 		</main>
 		<footer>
 			<ul>
-				<li><a href="http://www.lager2016.se">läge&reg;2016</a></li>
-				<li><a href="kontakta">Kontakt</a></li>
-				<li><a href="vanligafragor">FAQ</a></li>
-				<li><a href="funktioner" >Instruktioner</a></li>
-				<li><a href="https://www.facebook.com/lager2016/"><img src="images/social/facebook-4096-black.png" /></a></li>
+				<li><a href="<?php echo $lägretsSida ?>" target="_BLANK"><?php echo $lägerNamn ?></a></li>
+				<li><a href="kontakta.php">Kontakt</a></li>
+				<li><a href="vanligafragor.php">FAQ</a></li>
+				<li><a href="funktioner.php" >Instruktioner</a></li>
+				<!--<li><a href="https://www.facebook.com/lager2016/"><img src="images/social/facebook-4096-black.png" /></a></li>-->
 			</ul>
-			<small>Copyright &copy; 2016 Max Timje & Läge&reg;</small>
+			<small>Copyright &copy; <?php echo date("Y"); ?> Max Timje</small>
 		</footer>
 	<?php
 }

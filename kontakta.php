@@ -4,25 +4,7 @@
 
 <html>
 
-<head>
-
-<meta charset="utf-8">
-
-<title>Anmälan läge&reg;2016</title>
-
-
-
-<meta name="viewport" content="width=device-width">
-
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="js/my_js.js"></script>
-
-</head>
+<?php include("head.php") ?>
 
 
 
@@ -38,9 +20,9 @@
 
 		<div class="deltagare">
 
-			<p>Denna hemsida är skapad av mig <a href="http://www.timje.se">Max Timje</a>. Har du några frågor om funktioner är du välkommen att meddela mig, se kontaktuppgifter nedan. Har du några frågor om var du ska skriva in saker så hänvisar jag dig till första sidan och om frågan inte är löst så kan du kontakta Cecilia Ödman på cecilia.odman@gmail.com.</p>
+			<p>Denna hemsida är skapad av mig <a href="http://www.timje.se">Max Timje</a>. Har du några frågor om funktioner är du välkommen att meddela mig, se kontaktuppgifter nedan. Har du några frågor om var du ska skriva in saker så hänvisar jag dig till första sidan och om frågan inte är löst så kan du kontakta <?php echo $kontaktPersorn; ?> på <?php echo $kontaktMail; ?>.</p>
 
-	        <p>För övriga kontaktuppgifter till lägerledningen se lägrets informations sidor <a href="http://lager2016.se/kontakt/">Här.</a> </p>
+	        <p>För övriga kontaktuppgifter till lägerledningen se lägrets informations sidor <a href="<?php echo $lägretsSida ?>">Här.</a> </p>
 
 			<h3>e-mail</h3>
 
@@ -59,15 +41,17 @@
 			<p>//Max Timje, infogruppen</p>
 
 			<?php
-			$inkår = $_SESSION['user_kår'];
-			$sql = "SELECT email FROM `users` WHERE `kår` = '$inkår' LIMIT 1; ";
-			$result = $conn->query($sql);
+			if(isset($_SESSION['user_kår'])){
+				$inkår = $_SESSION['user_kår'];
+				$sql = "SELECT email FROM `users` WHERE `kår` = '$inkår' LIMIT 1; ";
+				$result = $conn->query($sql);
 
-				if ($result->num_rows > 0) {
-					while($row = $result->fetch_assoc()) {
-						$email = $row['email'];
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+							$email = $row['email'];
+						}
 					}
-				}
+			}
 			?>
 
 			<form id="kontakt" action="contact.php" method="POST"> 

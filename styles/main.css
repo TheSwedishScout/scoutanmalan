@@ -1,15 +1,14 @@
-/* LESS Document */
-/*---------Variabales-------------------*/
 * {
   margin: 0;
   padding: 0;
 }
 body {
-  background: url(../images/backgrond.svg) no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background-color: #6BACCF;
+  /*background: url(../images/backgrond.svg) no-repeat center center fixed;*/
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
   min-height: 100vh;
   line-height: 22px;
 }
@@ -31,10 +30,13 @@ h1 {
   line-height: 66px;
   font-size: 42px;
 }
+h1, h2, h3, h4, h5, h6{
+  color: #363636;
+}
 /*-----------------------------------------HEADER------------------------------------------------*/
 header {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 5px 5px;
+  background: #99c549;
+  /*border-radius: 0 0 5px 5px;*/
 }
 /*-----------------------------------------menu start-----------------------------------------*/
 #main_menu {
@@ -66,7 +68,10 @@ header {
   height: 100vh;
 }
 #main_menu ul li a:hover {
-  background: #4b4b4b;
+  background: rgba(0, 0, 0, 0.2);
+}
+#main_menu ul li a.active {
+ background: rgba(0, 0, 0, 0.2); 
 }
 #main_menu ul li a {
   padding: 10px;
@@ -75,13 +80,13 @@ header {
 /*-----------------------------------------FOOTER-------------------------------------------*/
 /*padding på main styr whitespace till footern*/
 footer {
-  background: rgba(0, 0, 0, 0.5);
+  background: #99c549;
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
   padding-top: 10px;
-  border-radius: 5px 5px 0 0;
+  /*border-radius: 5px 5px 0 0;*/
 }
 footer ul {
   list-style: none;
@@ -103,20 +108,20 @@ footer small {
   display: block;
 }
 a {
-  color: #ef7c00;
+  color: #04547a;
   text-decoration: none;
-  text-shadow: 0.3px 0.3px #000;
+  
 }
 a:visited {
-  color: #ef7c00;
+  color: #04547a;
 }
 #loggon:hover {
-  text-shadow: none;
+  
   background: rgba(0, 0, 0, 0) !important;
   border-radius: 5px 5px 0 0;
 }
 a:hover {
-  text-shadow: none;
+  text-decoration: underline;
 }
 #nydeltagare {
   overflow: hidden;
@@ -146,7 +151,7 @@ a:hover {
 #nydeltagare .input:nth-child(2n) {
   text-align: left;
 }
-#nydeltagare #btnSubmit {
+/*#nydeltagare #btnSubmit {
   float: left;
   clear: both;
   margin-left: 130px;
@@ -163,16 +168,34 @@ a:hover {
   width: 60px;
 }
 #nydeltagare #remove {
-  float: right;
+  float: left;
   clear: both;
   margin-left: 0;
   margin-top: 5px;
   margin-bottom: 5px;
   width: 50px;
-}
+}*/
 #nydeltagare #info {
   float: left;
   clear: both;
+}
+.actions{
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+    
+}
+.actions input:only-child{
+  width: 100%;
+}
+.actions input{
+  display: inline-block;  
+  box-sizing: border-box;
+  float: right;
 }
 div.g-recaptcha {
   float: left;
@@ -195,11 +218,18 @@ label.input div {
 label.input div.missing_information {
   display: block;
 }
+input:focus,select:focus{
+  /*border-color: #9b2051;*/
+  outline-color: #9b2051;
+}
+select option:hover{
+  outline-color: #9b2051;
+}
 div.deltagare {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
   margin: 5px 0;
   padding: 5px;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 div.deltagare h2 {
   text-align: center;
@@ -247,8 +277,15 @@ div.deltagare .matallergier .mat {
   box-sizing: border-box;
 
 }
-#kontakt input[type=submit]{
+input[type=submit], input[type=button]{
   padding: 5px;
+  background-color: #de2e74;
+  border: 0;
+}
+input[type=submit]:hover, input[type=button]:hover{
+  background-color: #9b2051;
+  cursor: pointer;
+  color: #FFF;
 }
 
 @media screen and (min-width: 632px) {
@@ -274,17 +311,14 @@ div.deltagare .matallergier .mat {
     line-height: 44px;
     font-size: 28px;
     text-decoration: none;
-    color: #ef7c00;
-    text-shadow: 1px 1px #000;
+    color: #04547a;
+    
     padding: 5px;
     padding-bottom: 10px;
     border-radius: 5px 5px 0 0;
   }
   #main_menu ul li a img {
     height: 44px;
-  }
-  #main_menu ul li a:hover {
-    background: rgba(0, 0, 0, 0.7);
   }
 }
 @media screen and (min-width: 960px) {

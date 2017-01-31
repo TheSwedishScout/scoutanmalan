@@ -1,16 +1,7 @@
 <?php include ("function.php");?>
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Anmälan läge&reg;2016</title>
-
-<meta name="viewport" content="width=device-width"/>
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/my_js.js"></script>
-</head>
+<?php include("head.php") ?>
 
 <body>
 

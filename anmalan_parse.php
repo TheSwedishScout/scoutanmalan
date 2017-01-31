@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Anmälan läge&reg;2016</title>
+<title>Anmälan <?php echo $lägerNamn ?></title>
 </head>
 <body>
 <?php include ("function.php");

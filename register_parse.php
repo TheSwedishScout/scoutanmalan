@@ -1,52 +1,12 @@
-﻿<!doctype html>
+﻿<?php 
+include 'function.php'; 
+include("head.php") 
 
-<html>
-
-<head>
-
-<meta charset="utf-8">
-
-<title>Anmälda läge&reg;2016</title>
-
-
-
-<meta name="viewport" content="width=device-width">
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="js/my_js.js"></script>
-
-<?php include 'function.php'; ?>
-
-</head>
-
-
-
-<body>
-
-
-
-    <div id="sitecontainer">
-
-        <?php
-
-        headern();
-
-		?>
-
-        <section>
-
-        <?php
-
-
-
-echo "systemet kollar om du är inloggad.<br>";
+//echo "systemet kollar om du är inloggad.<br>";
 
 if (!isset($_SESSION['user_id'])){
 
-    echo "Du va inte inloggad. <br>";
+    //echo "Du va inte inloggad. <br>";
 
     
 
@@ -68,7 +28,7 @@ if (!isset($_SESSION['user_id'])){
 
 
 
-        echo "Google säger att du inte är en robot.<br>";
+        //echo "Google säger att du inte är en robot.<br>";
 
 
 
@@ -90,7 +50,7 @@ if (!isset($_SESSION['user_id'])){
 
             
 
-            echo "Du har sagt att du tillhör &rdquo; $kår &bdquo;.";
+            //echo "Du har sagt att du tillhör &rdquo; $kår &bdquo;.";
 
             /*kollar så att inte något fält är tomt*/
 
@@ -130,7 +90,7 @@ if (!isset($_SESSION['user_id'])){
 
     	    unset($password);
 
-                echo "Ditt lösenord är nu krypterat och glömt.";
+                //echo "Ditt lösenord är nu krypterat och glömt.";
 
                 //insertinge values into mysqli server
 
@@ -140,11 +100,11 @@ if (!isset($_SESSION['user_id'])){
 
                 if ($conn->query($sql) === TRUE) { //successfully insertded values to database
 
-                    echo "Ditt konto är nu sparat.<br>";
+                    //echo "Ditt konto är nu sparat.<br>";
 
                     //cockie or session start
 
-                    echo "Du kan nu lägga in deltagare i våra listor.<br>";
+                    //echo "Du kan nu lägga in deltagare i våra listor.<br>";
 
                     $_SESSION['user_id'] = $nick;
 

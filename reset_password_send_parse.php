@@ -54,7 +54,7 @@ if (isset($_POST['username'])){
 
 			// Additional headers
 			$headers .= "To: $username_DB <$email_DB>" . "\r\n";
-			$headers .= 'From: Anmälan Läger2016 <no-replay@scouten.se>' . "\r\n";
+			$headers .= 'From: Anmälan <?php echo $lägerNamn; ?> <no-replay@scouten.se>' . "\r\n";
 			
 
 		    mail($email_DB, $subject, $message, $headers);
@@ -69,17 +69,7 @@ if (isset($_POST['username'])){
 ?>
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Anmälan läge&reg;2016</title>
-
-<meta name="viewport" content="width=device-width"/>
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/my_js.js"></script>
-</head>
-
+<?php include("head.php") ?>
 <body>
 
     <div id="sitecontainer">
@@ -115,7 +105,7 @@ if (isset($_POST['username'])){
 				$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
 				// Additional headers
-				$headers .= 'From: Fel Läger2016 <no-replay@scouten.se>' . "\r\n";
+				$headers .= 'From: Fel <?php echo $lägerNamn; ?> <no-replay@scouten.se>' . "\r\n";
 				mail('max@timje.se', 'Fel anmälan', "det ser ut att gå fel för $username när han/hon försökte byta lösenord kolla igenom del $steps", $headers);
 			}
 			?>

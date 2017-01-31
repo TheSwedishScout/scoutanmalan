@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])){
             $password_hashed = $row['password'];
             
             if (password_verify($password, $password_hashed)) {
-                echo 'Password is valid!';
+                //echo 'Password is valid!';
                 $_SESSION['user_id'] = $username;
                 $_SESSION['user_kår'] = $row['kår'];
                 $_SESSION['user_lvl'] = $row['user_lvl'];

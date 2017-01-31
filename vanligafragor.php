@@ -4,26 +4,7 @@
 
 <html>
 
-<head>
-
-<meta charset="utf-8">
-
-<title>Frågor och svar läge&reg;2016</title>
-
-
-
-<meta name="viewport" content="width=device-width"/>
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="js/my_js.js"></script>
-
-</head>
-
+<?php include("head.php") ?>
 
 
 <body>
@@ -53,7 +34,7 @@
 
         	<h4>Svar:</h4>
 
-        	<p>Vi har inte fått in några så många frågor hitintills men du är välkomen att skicka en till oss på cecilia.odman@gmail.com eller till scout(a)timje.se .</p>
+        	<p>Vi har inte fått in några så många frågor hitintills men du är välkomen att skicka en till oss. <a href="kontakta.php">Kontakt</a></p>
 
         </div>
 

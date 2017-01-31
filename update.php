@@ -4,23 +4,7 @@
 
 <html>
 
-<head>
-
-<meta charset="utf-8">
-
-<title>Anmälan läge&reg;2016</title>
-
-<meta name="viewport" content="width=device-width"/>
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-
-<link rel="shortcut icon" href="images/lägerloggo-smal.png"/>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="js/my_js.js"></script>
-
-</head>
+<?php include("head.php") ?>
 
 
 
@@ -158,61 +142,63 @@ if (($kar == $_SESSION['user_kår']) OR ($_SESSION['user_lvl'] >= 2) ){
 	    <h1><?php echo $fnamn; ?></h1>
 
 
+	    <div class="deltagare">
+		    <form id="nydeltagare" name="nydeltagare" method="post" <?php echo $action; ?> >
 
-	    <form id="nydeltagare" name="nydeltagare" method="post" <?php echo $action; ?> >
+		    	
 
-	    	
+		        
 
-	        
+		        <label class="input" for="Förnamn">Förnamn*:</label>
 
-	        <label class="input" for="Förnamn">Förnamn*:</label>
+		        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Förnamn" id="textfield" value="<?php echo $fnamn ?>">
 
-	        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Förnamn" id="textfield" value="<?php echo $fnamn ?>">
+		        
 
-	        
+		        
 
-	        
+		        <label class="input" for="Efternamn">Efternamn*:</label>
 
-	        <label class="input" for="Efternamn">Efternamn*:</label>
+		        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Efternamn" id="textfield2" value="<?php echo $enamn ?>">
 
-	        <input class="input" <?php if($disabled){ echo "disabled";} ?> required="required" type="text" name="Efternamn" id="textfield2" value="<?php echo $enamn ?>">
+		        <?php 
+		        	printAldersgrupper($disabled, $avdelning); 
+					printTshirts($disabled, $tshirt); 
+	            	printSpeckost($disabled, explode(", ", $speckostSQL));
+	  		    ?>
+		            
 
-	        <?php 
-	        	printAldersgrupper($disabled, $avdelning); 
-				printTshirts($disabled, $tshirt); 
-            	printSpeckost($disabled, explode(", ", $speckostSQL));
-  		    ?>
-	            
+		        <label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
 
-	        <label class="input full" for="Sjukdomar">Sjukdomar/andra allergier:</label>
+		        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Sjukdomar" id="textarea2"><?php echo $sjuk ?></textarea>
 
-	        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Sjukdomar" id="textarea2"><?php echo $sjuk ?></textarea>
+		                
 
-	                
+		        <label class="input full" for="Övriginfo">Övrig info:</label>
 
-	        <label class="input full" for="Övriginfo">Övrig info:</label>
-
-	        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Övriginfo" id="textarea" ><?php echo $övrigt ?></textarea>
+		        <textarea class="input" <?php if($disabled){ echo "disabled";} ?> name="Övriginfo" id="textarea" ><?php echo $övrigt ?></textarea>
 
 
 
-	        <label class="input" for="bild" >Får vara med på bild: </label>
+		        <label class="input" for="bild" >Får vara med på bild: </label>
 
-        	<div class="input"><input <?php if($disabled){ echo "disabled";} ?> type="radio" value="ja" <?php echo $bild_ja;?> name="bild"> Ja  &nbsp; <input <?php if($disabled){ echo "disabled";} ?> type="radio" <?php echo $bild_nej;?> value="nej" name="bild"> Nej </div>
+	        	<div class="input"><input <?php if($disabled){ echo "disabled";} ?> type="radio" value="ja" <?php echo $bild_ja;?> name="bild"> Ja  &nbsp; <input <?php if($disabled){ echo "disabled";} ?> type="radio" <?php echo $bild_nej;?> value="nej" name="bild"> Nej </div>
+	        	<div class="actions">
+			    	<input type="button" name="btnreturn" id="btnreturn" class="check return" value="Tillbaka">
+			        <input type="button" <?php if($disabled){ echo "disabled";} ?> name="remove" id="remove" value="Avregistrera">
+			    	<input type="submit" <?php if($disabled){ echo "disabled";} ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
+		        </div>
 
-	    	<input type="submit" <?php if($disabled){ echo "disabled";} ?> name="btnSubmit" id="btnSubmit" class="check" value="Spara">
+		        <input type="hidden" <?php if($disabled){ echo "disabled";} ?> value="<?php echo $id ?>" name ="id">
 
-	        <input type="button" <?php if($disabled){ echo "disabled";} ?> name="remove" id="remove" value="radera">
+		        <div id="info">
 
-	        <input type="hidden" <?php if($disabled){ echo "disabled";} ?> value="<?php echo $id ?>" name ="id">
+		        	<p>Obligatoriska fält är makerade med *</p>
 
-	        <div id="info">
+		        </div>
 
-	        	<p>Obligatoriska fält är makerade med *</p>
-
-	        </div>
-
-	    </form>
+		    </form>
+		</div>
 
 	    <?php 
 

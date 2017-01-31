@@ -59,6 +59,11 @@ $( document ).ready(function() {
 	    	
 
 	});
+	$('.return').click(function(){
+		//debugger;
+		window.history.back();
+
+	});
 
 	function register(e){
 		//e.preventDefault();

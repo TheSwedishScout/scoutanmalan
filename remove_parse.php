@@ -1,19 +1,6 @@
-<?php include ("function.php");?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Anmälan läge&reg;2016</title>
+<?php include ("function.php");
 
-<link rel="stylesheet" type="text/css" href="styles/main.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/my_js.js"></script>
-</head>
-
-<body>
-<?php
-
-var_dump($_POST);
+//var_dump($_POST);
 
 if (true){ // kolla om användaren har rättighet att ta bort deltagare
 	
@@ -40,8 +27,8 @@ if (true){ // kolla om användaren har rättighet att ta bort deltagare
 	$sql= "DELETE FROM deltagare WHERE ID= $id";
 	
 	if ($conn->query($sql) === TRUE) {
-		echo "$fnamn $enamn är nu inte kvar i vår databas";
-		header('location: anmalda.php');
+		//echo "$fnamn $enamn är nu inte kvar i vår databas";
+		header('location: ./anmalda.php');
 		exit();
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
@@ -49,5 +36,3 @@ if (true){ // kolla om användaren har rättighet att ta bort deltagare
 	$conn->close();
 }
 ?>
-</body>
-</html>
