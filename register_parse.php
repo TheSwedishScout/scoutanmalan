@@ -1,6 +1,6 @@
 ﻿<?php 
 include 'function.php'; 
-include("head.php") 
+include("head.php");
 
 //echo "systemet kollar om du är inloggad.<br>";
 

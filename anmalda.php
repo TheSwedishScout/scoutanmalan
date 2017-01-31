@@ -116,12 +116,16 @@
 						<p>Tröja: <?php echo $row['tröjstorlek']; ?>.</p>
 
 						<div class="matallergier">
-
-						<h3>Allergier</h3>
-
-						<p class="mat">Speckost: <?php echo $row['speckost']; ?></p>
-
+							<h3>Allergier</h3>
+							<p class="mat">Speckost: <?php echo $row['speckost']; ?></p>
 						</div>
+						<?php 
+							if($_SESSION['user_lvl'] >= 2){
+								?>
+								<p><?php echo $row['kår']; ?></p>
+								<?php
+							}
+						?>
 
 					</div>
 

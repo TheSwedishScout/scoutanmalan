@@ -1,14 +1,4 @@
-<html>
-<head>
-<meta charset="utf-8">
-<title>Anmälan <?php echo $lägerNamn ?></title>
-</head>
-<body>
 <?php include ("function.php");
-
-
-var_dump($_POST);
-echo "<br>";
 $error = false;
 
 if ((!empty($_POST)) && (isset($_SESSION['user_id']))){
@@ -80,7 +70,7 @@ if ((!empty($_POST)) && (isset($_SESSION['user_id']))){
 		$sql= "INSERT INTO `deltagare` (`förnamn`, `efternamn`, `bild`, `avdelning`, `kår`, `tröjstorlek`, `speckost`, `sjukdomar`, `övrigt`, `date_added`, `date_edited`) VALUES ('$fnamn', '$enamn', '$bild', '$avdelning', '$kar', '$tshirt', '$speckosten', $Sjukdomar, $övrigt, NOW(), NOW());";
 		
 		if ($conn->query($sql) === TRUE) {
-			echo "New record created successfully";
+			//echo "New record created successfully";
 			header('location: anmalan.php?anmäld=sparad');
 			exit; 
 		} else {

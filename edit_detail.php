@@ -46,7 +46,7 @@ if (isset($_SESSION['user_kår'])){
 			$sql2 = "UPDATE `users` SET `password`='$password_hashed' WHERE `kår` = '$kår'";
 
 			if ($conn->query($sql2) === TRUE) {
-			    echo "Ditt lösenord är uppdaterat!";
+			   // echo "Ditt lösenord är uppdaterat!";
 			    $password_update= "password=updated";
 			} else {
 			    echo "Error updating record: " . $conn->error;
@@ -61,7 +61,7 @@ if (isset($_SESSION['user_kår'])){
 		$sql3 = "UPDATE `users` SET `email`='$email' WHERE `kår` = '$kår'";
 
 		if ($conn->query($sql3) === TRUE) {
-		    echo "Din email adress är uppdaterad!";
+		    //echo "Din email adress är uppdaterad!";
 		    $email_update = "email=updated";
 		} else {
 		    echo "Error updating record: " . $conn->error;
@@ -73,7 +73,7 @@ if (isset($_SESSION['user_kår'])){
 		$sql4 = "UPDATE `users` SET `telefon`='$phone' WHERE `kår` = '$kår'";
 
 		if ($conn->query($sql4) === TRUE) {
-		    echo "Ditt telefonnummer är uppdaterat!";
+		    //echo "Ditt telefonnummer är uppdaterat!";
 		    $phone_update = "phone=updated";
 		} else {
 		    echo "Error updating record: " . $conn->error;
